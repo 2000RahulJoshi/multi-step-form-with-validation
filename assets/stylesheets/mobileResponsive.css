@@ -15,6 +15,7 @@
 
     .mainContentLeft,.mainContentRight{
         width: 100%;
+        overflow-y: visible;
     }
 
     .formAndInfoContainer{
