@@ -65,7 +65,6 @@ const formValidation = formSelector =>{
         }
     ];
 
-
     const validateEachGroup = (a) =>{
         const label = a.querySelector('label');
         const inputFields = a.querySelector('input,textarea');
@@ -198,7 +197,6 @@ const formValidation = formSelector =>{
             myForm.reset();
         },1500);
         }
-
     })
 
     const checkValidation = pageToValidate =>{
@@ -234,8 +232,6 @@ function btndisable(e){
     }
 }
 
-
-
 // common validation functions for every fild
 function validateOnKeyDown(event,regex){
     let key = event.key;
@@ -270,10 +266,28 @@ function removeSelectError(event,errorTextDiv,selectFieldDropDown){
     inputField.classList.remove("border-success");
 }
 
+function displayPassword(event,passwordType,showEye,hideEye){
+    event.preventDefault();
+    let field = document.getElementById(`${passwordType}`);
+    let fieldType = field.type;   
+    let openEye = document.querySelector(`.${showEye}`)
+    let closeEye = document.querySelector(`.${hideEye}`)
+
+    if(fieldType == 'password'){
+        field.type = "text";
+        openEye.style.display="inline-block"
+        closeEye.style.display="none"
+    }
+    else{
+        field.type = "password";
+        openEye.style.display="none"
+        closeEye.style.display="inline-block"
+    }
+}
+
 function checkField(event,fieldName){
     let val = event.target.value;
     let key = event.key;
-
     switch (fieldName){
         case 'fullName' : const regexFullName = /^[a-zA-Z\s.]{1,100}$/
                         removeErrorsOnkeyDown('nameErrorContainer','userNameDangerIcon','userNameSuccessIcon','fullName');
@@ -305,25 +319,5 @@ function checkField(event,fieldName){
         case 'additionalNotes' : removeErrorsOnkeyDown('additionalNotesErrorContainer','additionalNotesDangerIcon','additionalNotesSuccessIcon','addNotes');
                                 break;                  
     }
-
 }
 
-
-function displayPassword(event,passwordType,showEye,hideEye){
-    event.preventDefault();
-    let field = document.getElementById(`${passwordType}`);
-    let fieldType = field.type;   
-    let openEye = document.querySelector(`.${showEye}`)
-    let closeEye = document.querySelector(`.${hideEye}`)
-
-    if(fieldType == 'password'){
-        field.type = "text";
-        openEye.style.display="inline-block"
-        closeEye.style.display="none"
-    }
-    else{
-        field.type = "password";
-        openEye.style.display="none"
-        closeEye.style.display="inline-block"
-    }
-}
