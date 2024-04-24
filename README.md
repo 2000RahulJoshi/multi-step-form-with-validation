@@ -6,7 +6,7 @@ I have created a multi-step-form in which I checked the validation using regex a
 # Clone this repositery in your local machine
 run the following command on your terminal(inside that folder where you want to clone the repo)
 
-git clone https://github.com/2000RahulJoshi/multi-step-form.git
+git clone https://github.com/2000RahulJoshi/multi-step-form-with-validation.git
 
 
 # Customize the content
