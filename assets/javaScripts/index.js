@@ -35,6 +35,9 @@ const formValidation = formSelector =>{
             },
             errorMessage : (input,label) =>{
                 let inputFieldId = input.id;
+                if(inputFieldId == 'fullName' && input.value.length <5){
+                    return `** minimum length of ${label.textContent} should be 5`
+                }
                 if(inputFieldId == 'userPassword' || inputFieldId == 'confirmPassword'){
                     // return `** min-length=8 and ${label.textContent} should contains lowercase, uppercase, digit and special character`
                     return `** ${label.textContent}: 8+ chars, lowercase, uppercase, digit, special char.`
